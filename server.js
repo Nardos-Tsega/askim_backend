@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
-const bodyParse = require("body-parser");
+const bodyParser = require("body-parser");
 const Cards = require("./dbCards");
 const cors = require("cors");
 
@@ -28,9 +28,9 @@ app.post("/dating/cards", (req, res) => {
 });
 
 app.get("/dating/cards", (req, res) => {
-  Cards.find(err, (data) => {
+  Cards.find((err, data) => {
     if (err) {
-      res.status(500).send(arr);
+      res.status(500).send(err);
     } else {
       res.status(200).send(data);
     }
